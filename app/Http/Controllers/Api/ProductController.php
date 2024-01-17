@@ -29,7 +29,6 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->all();
-        
         try{
             
             $product = $this->product->create($data);

@@ -25,6 +25,7 @@ class ProductRequest extends FormRequest
             'nome_produto'                  => 'required',
             'valor_produto'                 => 'required',
             'id_categoria_produto'          => 'required',
+            'descricao_produto'             => 'nullable',
         ];
     }
 }
