@@ -71,12 +71,7 @@ class ProductController extends Controller
             
             $product = $this->product->findOrFail($id);
             $product->update($data);
-
-            if(isset($data['id_categoria_produto'])){
-                $product->productCategory()->sync($data['category']);
-            }
-
-            
+                        
             return response()->json([
                 'data' => [
                     'msg' => 'Produto atualizado com sucesso'
