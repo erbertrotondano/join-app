@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
+use App\Models\Product;
 use App\Http\Requests\ProductCategoryRequest;
 use App\Api\ApiMessages; 
 
@@ -20,7 +21,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        $categories = $this->category->paginate(10);
+        $categories = $this->category->withCount('products')->paginate(10);
         return response()->json($categories);
     }
 
