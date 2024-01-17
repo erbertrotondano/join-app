@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Requests\ProductCategoryRequest;
+use App\Api\ApiMessages; 
 
 class ProductCategoryController extends Controller
 {
@@ -87,7 +88,10 @@ class ProductCategoryController extends Controller
                 ]
             ]);
         } catch(\Exception $e){
-            return response()->json($e->getMessage(), 401);
+            $code = $e->getCode();
+            $httpCode   = ($code == 23000 ? 409 : $code);
+            $message    = new ApiMessages($e->getMessage(), $httpCode);
+            return response()->json($message->getMessage(), $httpCode);
         }
     }
 }
