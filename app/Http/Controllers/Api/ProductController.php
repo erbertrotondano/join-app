@@ -71,7 +71,7 @@ class ProductController extends Controller
             
             $product = $this->product->findOrFail($id);
             $product->update($data);
-                        
+
             return response()->json([
                 'data' => [
                     'msg' => 'Produto atualizado com sucesso'
@@ -98,5 +98,10 @@ class ProductController extends Controller
         } catch(\Exception $e){
             return response()->json($e->getMessage(), 401);
         }
+    }
+
+    public function productsByCategory(string $category_id){
+        $products = $this->product->where('id_categoria_produto', $category_id)->paginate(10);
+        return response()->json($products);
     }
 }

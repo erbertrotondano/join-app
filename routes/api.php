@@ -25,6 +25,7 @@ Route::prefix('v1')->namespace('App\Http\Controllers\Api')->group(function() {
     });
     Route::name('products.')->group(function(){
         Route::resource('products', 'ProductController');
+        Route::get('product-category/{category_id}/products', 'ProductController@productsByCategory')->name('productsByCategory');
     });
     
 });
