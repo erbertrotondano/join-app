@@ -22,10 +22,12 @@ Route::prefix('v1')->namespace('App\Http\Controllers\Api')->group(function() {
     
     Route::name('product_categories.')->group(function(){
         Route::resource('product-categories', 'ProductCategoryController');
+        Route::get('product-categories-count', 'ProductCategoryController@categoriesCount')->name('categoriesCount');
     });
     Route::name('products.')->group(function(){
         Route::resource('products', 'ProductController');
         Route::get('product-category/{category_id}/products', 'ProductController@productsByCategory')->name('productsByCategory');
+        Route::get('products-count', 'ProductController@productsCount')->name('productsCount');
     });
     
 });

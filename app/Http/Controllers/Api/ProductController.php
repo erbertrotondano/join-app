@@ -104,4 +104,9 @@ class ProductController extends Controller
         $products = $this->product->where('id_categoria_produto', $category_id)->paginate(10);
         return response()->json($products);
     }
+
+    public function productsCount(){
+        $count = $this->product->all()->count();
+        return response()->json($count);
+    }
 }

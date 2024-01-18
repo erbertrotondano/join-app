@@ -95,4 +95,9 @@ class ProductCategoryController extends Controller
             return response()->json($message->getMessage(), $httpCode);
         }
     }
+
+    public function categoriesCount(){
+        $count = $this->category->all()->count();
+        return response()->json($count);
+    }
 }
