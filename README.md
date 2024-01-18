@@ -26,4 +26,4 @@ Ah, quando você quiser desligar a aplicação basta usar o comando
 - `./vendor/bin/sail down`
 
 
-Tudo pronto! O back-end da aplicação já está rodando, agora vamos pro front-end. :smiley:
+Se deu tudo certo o back-end da aplicação já está rodando, agora vamos para o [Front-End](https://github.com/erbertrotondano/join-front-end/). :smiley:
